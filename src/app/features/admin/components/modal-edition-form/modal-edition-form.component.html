@@ -1,0 +1,11 @@
+<div class="modal-edition-form-container">
+  <button
+    mat-button
+    class="button-close"
+    (click)="onCloseHandle(); $event.preventDefault()"
+  >
+    Cancel
+  </button>
+
+  <admin-edition-form [data]="data" (formSubmit)="onSubmitHandle($event)"></admin-edition-form>
+</div>

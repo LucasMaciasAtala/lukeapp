@@ -1,0 +1,10 @@
+<mat-toolbar color='primary'>
+    <mat-toolbar-row>
+      <a routerLink="" class="logo">Panchos</a>
+
+      <a routerLink="panchos-approve" class="menu-item">Moderate</a>
+      <a routerLink="users" class="menu-item">Users</a>
+      
+      <a [routerLink]="'users/' + 45" class="menu-item">Profile</a>
+    </mat-toolbar-row>
+</mat-toolbar>

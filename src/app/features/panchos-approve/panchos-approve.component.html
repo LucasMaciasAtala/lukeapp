@@ -1,0 +1,64 @@
+<mat-tab-group>
+    <mat-tab label="Nuevos Panchos">   
+        <div class="container">
+         <div  [ngClass]="{'slide-top': item.clicked}" class="row panchos-list" *ngFor="let item of pendingPanchos">
+            <div class="col-2  text-left">
+                <div class="row">
+                    <div class="col-4">
+                        <img class="panchos-avatar" [src]="item?.user?.profileImage" alt="">
+                    </div>
+                    <div class="col avatar-name">
+                        <span>{{item?.user?.firstName}} {{item?.user?.lastName}} </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <span>
+                    {{item?.description}}
+                </span>
+                 <mat-icon *ngFor="let i of getArray(item?.value)"  svgIcon="pancho" ></mat-icon>
+
+            </div>
+            <div class="col text-center">
+                <div class="btn-group" role="group">
+                    <button  (click)="pendingPanchosAction(true, item)" class="btn btn-success mr-2">
+                        Voto Positivo
+                    </button>
+                    <button (click)="pendingPanchosAction(false, item)" class="btn btn-danger ">
+                        Voto Negativo
+                    </button>    
+                </div>
+            </div>
+        </div>    
+    </div>
+</mat-tab>
+<mat-tab label="Panchos Pagados"> 
+    <div class="container">
+        <div  [ngClass]="{'slide-top': item.clicked}"  class="row panchos-list" *ngFor="let item of paidoutPanchos">
+            <div class="col-2  text-left">
+                <div class="row">
+                    <div class="col-4">
+                        <img class="panchos-avatar" [src]="item?.user?.profileImage" alt="">
+                    </div>
+                    <div class="col avatar-name">
+                        <span>{{item?.user?.firstName}} {{item?.user?.lastName}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                {{item?.description}} - {{item?.timestamp | date}}
+            </div>
+            <div class="col text-center">
+                <div class="btn-group" role="group">
+                    <button (click)="paidoutPanchosAction(true, item)" class="btn btn-success mr-2">
+                        Voto Positivo
+                    </button>
+                    <button (click)="paidoutPanchosAction(false, item)" class="btn btn-danger ">
+                        Voto Negativo
+                    </button>    
+                </div>
+            </div>
+        </div>    
+    </div>
+</mat-tab>
+</mat-tab-group>

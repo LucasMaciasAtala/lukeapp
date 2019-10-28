@@ -1,0 +1,184 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+/**
+Boostrap
+ */
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "~bootstrap/scss/functions";
+@import "variables";
+// // Required
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// // Optional
+@import "~bootstrap/scss/reboot"; //conflicto con estilos de angular-material
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/grid";
+// adds the grid
+@import "~bootstrap/scss/utilities";
+// adds css utilities
+@import "reset";
+
+@include mat-core();
+@import "themes/light_theme.scss";
+@import "shared.scss";
+@include angular-material-theme($light-theme);
+
+/* .dark-theme {
+  @include angular-material-theme($dark-theme);
+} */
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Montserrat", "Helvetica Neue", sans-serif;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.search-input {
+  width: 100%;
+}
+
+div.my-table-container {
+  @extend .p-3;
+
+  mat-card.my-table {
+    min-width: 660px;
+    padding-left: 0;
+    padding-right: 0;
+    @include mat-elevation(4);
+    @extend .container-fluid;
+
+    mat-card-header.table-navbar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      //padding: 0.50rem 0;
+
+      mat-card-title {
+        margin-bottom: 0;
+        padding-left: 0.5rem;
+        justify-self: center;
+        align-self: center;
+      }
+
+      mat-divider {
+        padding: 0 0.5rem;
+        align-self: normal;
+      }
+
+      div.search-box {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 0.5rem;
+        flex: 1;
+
+        mat-icon {
+          color: mat-color($mat-gray, 500);
+          margin-right: 0.75rem;
+          //padding-right: 0.5rem;
+        }
+
+        input {
+          border-style: none;
+          font-size: 14px;
+        }
+      }
+
+      .filter {
+        margin-right: 0.5rem;
+      }
+    }
+
+    mat-divider.header-divider {
+      z-index: 101; // la propiedad sticky del mat-table oculta el divider
+    }
+
+    mat-card-content {
+      table.mat-table {
+        width: 100%;
+
+        thead,
+        tr.mat-row:hover {
+          background-color: mat-color($mat-gray, 100);
+        }
+
+        mat-paginator {
+          background-color: inherit;
+        }
+      }
+    }
+
+    mat-card-actions {
+      button {
+        margin: 0 0.75rem;
+      }
+
+      padding: 0 0.5rem 0.75rem 0.5rem;
+    }
+  }
+}
+
+.bolder-400 {
+  font-weight: 400;
+}
+
+.bolder-500 {
+  font-weight: 500;
+}
+
+mat-toolbar .sub-nav-bar-text {
+  font-weight: 300;
+}
+
+.loader-overlay {
+  position: center;
+  opacity: 1;
+  background-color: inherit;
+  z-index: 1500;
+}
+
+.no-data {
+  @extend .w-100;
+  @extend .text-center;
+  @extend .text-black-50;
+}
+
+mat-toolbar.page-toolbar {
+  height: 2.5rem !important;
+  text-overflow: ellipsis;
+  font-size: 2vh;
+}
+
+.search-field {
+  padding: 0 0.5rem;
+  flex: 1;
+
+  mat-icon {
+    color: mat-color($mat-gray, 500);
+  }
+
+  input {
+    border-style: none;
+  }
+}

@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="head">
+    <div class="head-img" [style.background-image]="'url(' + user.img + ')'"></div>
+    <h1 class="head-name"> {{ user.name }} </h1>
+  </div>
+  <hr>
+  <div class="main">
+    <h2>Your panchos...</h2>
+    <table class="table table-borderless table-sm">
+      <thead>
+        <tr>
+          <th scope="col">Reason</th>
+          <th scope="col">Date</th>
+          <th scope="col">Payed for</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pancho of panchos">
+          <td>{{ pancho.reason }}</td>
+          <td>{{ pancho.created_at }}</td>
+          <td class="center">
+            <img [src]="pancho.is_payed ? '../../../../../assets/check-solid.svg' : '../../../../../assets/times-solid.svg'" alt="" srcset="">
+          </td>
+          <td class="center">
+            <button (click)="openModal()" data-toggle="modal" href="#pay_modal" data-target="#pay-modal" class="btn btn-danger btn-sm" *ngIf="!pancho.is_payed">Pay</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="pay_modal" #pay_modal>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pay your panchos!</h5>
+        <button (click)="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>How would you like to pay?</p>
+        <select name="payment_method" id="payment_method" #payment_method>
+          <option value="criollos">Criollos</option>
+          <option value="facturas">Facturas</option>
+          <option value="picada">Picada</option>
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button (click)="closeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="payAndCloseModal()" type="button" class="btn btn-primary">Pay</button>
+      </div>
+    </div>
+  </div>
+</div>

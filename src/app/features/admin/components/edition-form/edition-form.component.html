@@ -1,0 +1,43 @@
+<form
+  [formGroup]="form"
+  class="edition-form"
+  (ngSubmit)="onSubmitHandle($event)"
+>
+
+  <h2>Create new Pancho</h2>
+  <mat-form-field class="edition-form--field">
+    <input type="text" maxlength="25" formControlName="name"  [(ngModel)]="data.name" matInput placeholder="Name" />
+    <mat-error *ngIf="controls.name.errors?.required">
+      Pancho name is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="edition-form--field">
+    <input type="number" min="1" formControlName="count"  [(ngModel)]="data.count" matInput placeholder="Count" />
+    <mat-error *ngIf="controls.count.errors?.required">
+      Count is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="edition-form--field">
+    <input type="number" min="1" formControlName="expiration"  [(ngModel)]="data.expiration" matInput placeholder="expiration" />
+    <mat-error *ngIf="controls.expiration.errors?.required">
+      expiration is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="edition-form--field edition-form--field-textarea">
+    <textarea
+      formControlName="description"
+      matInput
+      maxlength="60"
+      placeholder="Description"
+       [(ngModel)]="data.description"
+    ></textarea>
+    <mat-error *ngIf="controls.description.errors?.required">
+      Description is required
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button type="submit">Create</button>
+</form>

@@ -1,0 +1,101 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px
+}
+
+/* Remove extra left and right margins, due to padding in columns */
+.row {
+  margin: 0 -5px;
+  /* Clear floats after the columns */
+  &:after {
+    content: "";
+    display: table;
+    clear: both
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1
+}
+
+/* Responsive columns - one column layout (vertical) on small screens */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px
+  }
+}
+
+//Todo: fix it
+.mat-card:hover {
+  border: 1px solid grey 
+}
+
+.example-card {
+  max-width: 400px
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover
+}
+
+.mat-card-image:first-child {
+  width: calc(100% + 54px);
+  border-top: 0;
+  border-radius: 0;
+  margin: 0 
+}
+
+.mat-card-avatar {
+  width: 6em;
+  height: 6em
+}
+
+.mat-card {
+  button {
+    position: absolute;
+    right: 20px;
+    box-shadow: none;
+    font-size: 1.7rem;
+    &:active {
+      background-color: red
+    }
+  }
+}
+
+h1 {
+  font-size: 2em
+}
+
+input {
+  margin: .8em;
+  border: none
+}
+
+section {
+  padding: 10px
+}
+
+#main-div {
+  padding:75px 
+}
+
+:host section {
+  min-width: 341px !important
+}

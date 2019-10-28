@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+@import 'themes/light_theme.scss';
+
+//@import '~bootstrap/scss/functions';
+//@import '~bootstrap/scss/variables';
+//@import '~bootstrap/scss/mixins';
+//@import '~bootstrap/scss/type';
+//@import '~bootstrap/scss/images';
+//@import '~bootstrap/scss/grid';
+// adds the grid
+//@import '~bootstrap/scss/utilities';
+
+.form {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  mat-form-field {
+    width: 100%;
+  }
+}

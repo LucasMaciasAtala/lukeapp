@@ -1,0 +1,16 @@
+<main class="container">
+  <h1>Types of Panchos</h1>
+  <mat-divider></mat-divider>
+  <button class="button--add-new-penality" mat-fab matTooltip="Create a new penality" (click)="onCreatePenalityHandle({})">
+    +
+  </button>
+    <div *ngIf="(source | async).length === 0">No data</div>
+  <admin-item-list
+    *ngIf="(source | async).length"
+    [dataSource]="source"
+    [displayedColumns]="columns"
+    (editItem)="onCreatePenalityHandle($event)"
+    (removeItem)="onRemovePenalityHandle($event)"
+  ></admin-item-list>
+
+</main>

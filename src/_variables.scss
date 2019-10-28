@@ -1,0 +1,17 @@
+/**
+The _variables.scss Sass partial allows to customize Bootstrap - more precisely, the parts of Bootstrap that will be
+used. That's why it's added before any Bootstrap import. This makes Bootstrap use this values instead of its default
+values. Those defaults are defined in ~bootstrap/scss/variables
+ */
+
+//$link-color: #3f51b5;
+//$link-hover-color: currentColor;
+$link-hover-decoration: none;
+// Material Design Breakpoints
+$grid-breakpoints: (xs: 0, // handset portrait (small, medium, large) | handset landscape (small)
+        sm: 600px, // handset landscape (medium, large) | tablet portrait(small, large)
+        md: 960px, //  tablet landscape (small, large)
+        lg: 1280px, // laptops and desktops
+        xl: 1600px // large desktops
+);
+$container-max-widths: (sm: 600px, md: 960px, lg: 1280px, xl: 1600px);
